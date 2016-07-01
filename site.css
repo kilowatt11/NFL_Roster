@@ -1,0 +1,20 @@
+.player-card{
+    display:inline-block;
+    border:1px solid black;
+    color:white;
+
+}.panel-heading.heading {
+    background-color:#337ab7;
+    color:white;
+}
+body {
+  background-image:url(https://www.electricchoice.com/wp-content/uploads/2015/08/nfl-energy-efficient.jpg);
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+.container,.panel-default{
+     background: rgba(0, 0, 0, 0);
+}
+.player-form {
+    color:white;
+}
