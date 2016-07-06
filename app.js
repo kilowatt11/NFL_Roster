@@ -29,13 +29,21 @@ $('form').on('submit', function(e){
 
 function update(list){
 
-  var playerElem = $('.player-roster');
-  playerElem.empty()
-  for(var i = 0; i < list.length; i++){
+  // var playerElem = $('.player-roster');
+  // playerElem.empty()
+  // for(var i = 0; i < list.length; i++){
+  //     console.log(list[i])
+  //   playerElem.append('<div class="player-card text-center"><img class="media-object img-rounded" src="' + list[i].img + '"alt ="..."/><p>'+ list[i].playername +'</p><p>'+list[i].position +'</p><p>'+list[i].jersey+'</p></div>')
+
+/*ANOTHER WAY TO WRITE THIS IN jQUERY*/
+$('.player-roster').empty();
+for(var i = 0; i < list.length; i++){
+var playerCard = $('<div class="player-card text-center"><img class="media-object img-rounded" src="' + list[i].img + '"alt ="..."/><p>'+ list[i].playername +'</p><p>'+list[i].position +'</p><p>'+list[i].jersey+'</p></div>')
       console.log(list[i])
-    playerElem.append('<div class="player-card text-center"><img class="media-object img-rounded" src="' + list[i].img + '"alt ="..."/><p>'+ list[i].playername +'</p><p>'+list[i].position +'</p><p>'+list[i].jersey+'</p></div>')  
+      playerCard.appendTo($('.player-roster'));
+ }
   }
-}
+
 
 $('.player-roster').on('click', '.player-card', function(){
   var username = $(this).text()
