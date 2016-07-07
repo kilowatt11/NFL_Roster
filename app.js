@@ -49,7 +49,7 @@ var playerCard = $('<div class="player-card text-center"><img class="media-objec
       console.log(list[i])
       playerCard.appendTo($('.player-roster'));
  }
->>>>>>> 49f266edb1551fa5ffd14b5ca15fbcd6f56e27a2
+
   }
 
 
