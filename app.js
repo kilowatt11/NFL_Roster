@@ -41,6 +41,7 @@ function update(list) {
   //     console.log(list[i])
   //   playerElem.append('<div class="player-card text-center"><img class="media-object img-rounded" src="' + list[i].img + '"alt ="..."/><p>'+ list[i].playername +'</p><p>'+list[i].position +'</p><p>'+list[i].jersey+'</p></div>')
 
+
 /*ANOTHER WAY TO WRITE THIS IN jQUERY*/
 $('.player-roster').empty();
 for(var i = 0; i < list.length; i++){
