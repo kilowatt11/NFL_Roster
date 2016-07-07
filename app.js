@@ -28,13 +28,29 @@ $('form').on('submit', function (e) {
 /*update the DOM with new player Card*/
 function update(list) {
 
+
   var playerElem = $('.player-roster');
   playerElem.empty()
 
   for (var i = 0; i < list.length; i++) {
     playerElem.append('<div class="player-card text-center"><img class="media-object img-rounded" src="' + list[i].img + '"alt ="..."/><p>' + list[i].playername + '</p><p>' + list[i].position + '</p><p>' + list[i].jersey + '</p></div>')
+
+  // var playerElem = $('.player-roster');
+  // playerElem.empty()
+  // for(var i = 0; i < list.length; i++){
+  //     console.log(list[i])
+  //   playerElem.append('<div class="player-card text-center"><img class="media-object img-rounded" src="' + list[i].img + '"alt ="..."/><p>'+ list[i].playername +'</p><p>'+list[i].position +'</p><p>'+list[i].jersey+'</p></div>')
+
+/*ANOTHER WAY TO WRITE THIS IN jQUERY*/
+$('.player-roster').empty();
+for(var i = 0; i < list.length; i++){
+var playerCard = $('<div class="player-card text-center"><img class="media-object img-rounded" src="' + list[i].img + '"alt ="..."/><p>'+ list[i].playername +'</p><p>'+list[i].position +'</p><p>'+list[i].jersey+'</p></div>')
+      console.log(list[i])
+      playerCard.appendTo($('.player-roster'));
+ }
+>>>>>>> 49f266edb1551fa5ffd14b5ca15fbcd6f56e27a2
   }
-}
+
 
 
 /* Remove Player Start*/
