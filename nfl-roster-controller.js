@@ -42,6 +42,13 @@ function ready(dataStore) {
             }
         }
     }
+
+    $('.saveRoster').on('click', function () {
+    
+         localStorage.setItem('myTeam', JSON.stringify(myPlayers))
+         draftUpdate();
+
+    })
     /*END DRAFT NEW PLAYER*/
 
 
@@ -65,12 +72,8 @@ function ready(dataStore) {
         }
     }
 
-    function draftUpdate() {
-        
+    function draftUpdate() { 
         draftRoster.empty();
-        
-
-
         myPlayers.forEach(function (player) {
             console.log(myPlayers)
             var template = '<div id="player-card" class=" text-center"><img class="media-object img-rounded" src="' + player.photo + '"alt ="..."/><p id="player-name">' + player.fullname + '</p><p>' + player.position + '</p><p>' + player.jersey + '</p></div>'
@@ -79,12 +82,7 @@ function ready(dataStore) {
     }
     /*END REMOVE PLAYER FROM ROSTER*/
 
-$('.saveRoster').on('click', function () {
-    
-         localStorage.setItem('myTeam', JSON.stringify(myPlayers))
-         draftUpdate();
 
-    })
 
     /*FILTER NFL PLAYER LIST*/
     $('#find').on('click', function (event) {
