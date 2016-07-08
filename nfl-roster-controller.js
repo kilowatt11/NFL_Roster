@@ -11,16 +11,15 @@ function ready(dataStore) {
 
     /*START DRAFT NEW PLAYER ON CLICK*/
     $('.roster').on('click', '#draft-pick', function () {
-        debugger;
         var username = $(this).text()
         var check = checkPlayer(username);
-
 
         addUserByName(username, check);
         draftUpdate();
     })
+
     function addUserByName(name, check) {
-        debugger;
+        
         if (check == true) {
             return;
         }
@@ -35,7 +34,7 @@ function ready(dataStore) {
     }
 
     function checkPlayer(name) {
-        debugger;
+        
         for (var i = 0; i < myPlayers.length; i++) {
             var currentPlayer = myPlayers[i];
             if (currentPlayer.fullname == name) {
@@ -48,7 +47,7 @@ function ready(dataStore) {
 
     /*START REMOVE PLAYER FROM ROSTER*/
     $('.draft-roster').on('click', '#player-name', function () {
-        // debugger;
+        
         var username = $(this).text()
         removeUserByName(username);
         draftUpdate();
@@ -56,7 +55,7 @@ function ready(dataStore) {
 
 
     function removeUserByName(name) {
-        // debugger;
+        
         for (var i = 0; i < myPlayers.length; i++) {
             var currentPlayer = myPlayers[i];
             if (currentPlayer.fullname == name) {
@@ -67,7 +66,7 @@ function ready(dataStore) {
     }
 
     function draftUpdate() {
-        // debugger;
+        
         draftRoster.empty();
         myPlayers.forEach(function (player) {
             var template = '<div id="player-card" class=" text-center"><img class="media-object img-rounded" src="' + player.photo + '"alt ="..."/><p id="player-name">' + player.fullname + '</p><p>' + player.position + '</p><p>' + player.jersey + '</p></div>'

@@ -12,7 +12,6 @@ function PlayerService (url, callWhenDone){
   }
   
   self.getPlayersBySomeValue = function(value){
-      debugger;
     var team = [];
     for (var i = 0; i < playerData.length; i++) {
         var currentPlayer = playerData[i];
