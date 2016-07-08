@@ -44,11 +44,18 @@ function ready(dataStore) {
     }
 
     $('.saveRoster').on('click', function () {
-    
          localStorage.setItem('myTeam', JSON.stringify(myPlayers))
-         draftUpdate();
-
+         draftUpdate();   
     })
+
+    $('.clearMyRoster').on('click', function(){
+        myPlayers= [];
+        draftUpdate(); 
+    })
+    $('.loadMyRoster').on('click', function(){
+        update();
+    })
+
     /*END DRAFT NEW PLAYER*/
 
 

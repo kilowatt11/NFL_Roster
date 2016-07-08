@@ -44,6 +44,7 @@ function PlayerService (url, callWhenDone){
                   return player; 
               }
           }).slice(0, 50)
+         
           localStorage.setItem('playerData', JSON.stringify(playerData))
           callWhenDone(self)
       })
