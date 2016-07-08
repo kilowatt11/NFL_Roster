@@ -10,43 +10,44 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="panel panel-default">
-            <div class="panel-heading heading">NFL Roster</div>
-            <div class="panel-body">
-                <div class="player-roster">
-                    <!--<div class="player-card text-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading heading">My NFL Roster</div>
+                    <div class="panel-body">
+                        <div class="draft-roster">
+                            <!--<div class="player-card text-center">
                         <img src="http://s.nflcdn.com/static/content/public/image/fantasy/transparent/200x200/" alt="NFL Placeholder image">
                         <p class="name">Name</p>
                         <p class="number">Position</p>
                         <p class="position">Number</p>
 
                     </div>-->
+                        </div>
+                    </div>
                 </div>
-                <div class="player-form">
-                    <h2 class="text-center">Create Player</h2>
-                    <form>
-                        <fieldset class="form-group">
-                            <label for="creatPlayerName">playerName</label>
-                            <input type="text" class="form-control" name="playerName" placeholder="Player Name">
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="creatPlayerPosition">Position</label>
-                            <input type="text" class="form-control" name="position" placeholder="Player Position">
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <label for="creatPlayerJersey">Jersey</label>
-                            <input type="text" class="form-control" name="jersey" placeholder="Player Jersey">
-                        </fieldset>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
+
+            </div>
+            <div class="col-xs-12 col-md-6 text-center">
+                <!--<form>
+                    <fieldset class="form-group">
+                        <label for="formGroupExampleInput">Example label</label>
+                        <input type="text" class="form-control" id="query" placeholder="Enter input">
+                    </fieldset>
+                    <button class="btn btn-primary" id="find">Find</button>
+                    <button class="clear-filter-button btn btn-primary">Clear Filter</button>
+                </form>-->
+                <input type="text" id="query">
+                <button id="find">Find</button>
+                <button class="clear-filter-button">Clear Filter</button>
+                <div class="roster">
+
                 </div>
-                <button type="button" class="some-button btn btn-primary">Get Players</button>
+
 
             </div>
         </div>
-
-
     </div>
 
 
@@ -55,7 +56,8 @@
     <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="data.service.js"></script>
-    <script src="app.js"></script>
+    <script src="nfl-roster-controller.js"></script>
+    <!--<script src="app.js"></script>-->
 </body>
 
 </html>

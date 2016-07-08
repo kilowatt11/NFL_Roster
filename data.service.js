@@ -1,47 +1,55 @@
-var PlayersService = function(endpointUri, callback){
-    var playersData = [];
+function PlayerService (url, callWhenDone){
+
+  if(typeof callWhenDone !== 'function'){
+      return 'Error: you must provide a function to call when done'
+  }
     
-    this.getPlayersByTeam = function(teamName){
-    	playersData.filter(function(player){
-    	  if(player.team == teamName){
-    	    return true;
+  var self = this;
+  var playerData = []
+  
+  self.getAllPlayers = function(){
+      return playerData;
+  }
+  
+  self.getPlayersBySomeValue = function(value){
+      debugger;
+    var team = [];
+    for (var i = 0; i < playerData.length; i++) {
+        var currentPlayer = playerData[i];
+        var hasValue = false;
+        for(var prop in currentPlayer){
+            if(typeof currentPlayer[prop] === 'string' && currentPlayer[prop].toLowerCase() === value.toLowerCase()){
+                hasValue = true;
+            }   
         }
-    	});
+        if(hasValue){
+            team.push(currentPlayer)
+        }
     }
-    
-    this.getPlayersByPosition = function(position){
-        playersData.filter(function(player){
-          if(player.position == position){
-            return true;
-          }
-        });
-    }
-    
-    function loadPlayersData(){
-      
-      //Lets check the localstorage for the data before making the call.
-      //Ideally if a user has already used your site 
-      //we can cut down on the load time by saving and pulling from localstorage 
-      
-      var localData = localStorage.getItem('playerData');
-      if(localData){
-      	playerData = JSON.parse(localData);
-      	return callback(); 
-      	//return will short circut the loadPlayersData function
-      	//this will prevent the code below from ever executing
+    return team;      
+  } 
+  
+  function goGetData(){
+      console.log('getting data')
+      var BCWServer = "http://bcw-getter.herokuapp.com/?url=";
+      var modifiedUrl = BCWServer + encodeURIComponent(url);
+      var data = localStorage.getItem('playerData');
+      if(data){
+        playerData = JSON.parse(data)
+        return callWhenDone(self);
       }
-      
-      var url = "http://bcw-getter.herokuapp.com/?url=";
-      var apiUrl = url + encodeURIComponent(endpointUri);
-    
-        $.getJSON(endpointUri, function(data){
-          playersData = data.body.players;
-          console.log('Player Data Ready')
-          console.log('Writing Player Data to localStorage')
+      $.get(modifiedUrl, function(response){
+          var data = JSON.parse(response)
+          playerData = data.body.players.filter(function(player){
+              if(player.pro_status === 'A'){
+                  return player; 
+              }
+          }).slice(0, 50)
           localStorage.setItem('playerData', JSON.stringify(playerData))
-          console.log('Finished Writing Player Data to localStorage')
-          callback()
-        });
-    }	
-loadPlayersData(); //call the function above every time we create a new service
-} 
+          callWhenDone(self)
+      })
+  }
+  
+  goGetData()
+  
+}

@@ -1,4 +1,5 @@
 
+new PlayerService('http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json', ready)
 
 function Player(playername, position, jersey) {
   var newPlayer = this
@@ -49,7 +50,7 @@ var playerCard = $('<div class="player-card text-center"><img class="media-objec
       console.log(list[i])
       playerCard.appendTo($('.player-roster'));
  }
->>>>>>> 49f266edb1551fa5ffd14b5ca15fbcd6f56e27a2
+
   }
 
 
@@ -57,7 +58,7 @@ var playerCard = $('<div class="player-card text-center"><img class="media-objec
 /* Remove Player Start*/
 $('.player-roster').on('click', '.player-card', function () {
   var username = $(this).text()
-  removeUserByName(playername);
+  removeUserByName(username);
   update(players);
 })
 
@@ -69,20 +70,7 @@ function removeUserByName(name) {
     }
   }
 }
+}
 /*Remove Player Finish*/
 
-
-var loading = true; //Start the spinner
-var apiUrl = "http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json";
-var playerService = new PlayersService(apiUrl, ready);
-
-function ready() {
-  loading = false; //stop the spinner
-
-  //Now that all of our player data is back we can safely setup our bindings for the rest of the view.
-
-  $('.some-button').on('click', function () {
-    var teamSF = playerService.getPlayersByTeam("SF");
-  });
-}
 
