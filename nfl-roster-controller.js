@@ -6,8 +6,18 @@ function ready(dataStore) {
     var roster = $('.roster');
     var draftRoster = $('.draft-roster')
     var players = dataStore.getAllPlayers();
+    players.forEach(function(item){
+        var old = 'http'
+        var rep = 'https'
+        item.photo = item.photo.replace(old, rep)
+
+    })
+    console.log(players)
 
     var myPlayers = [];
+    
+
+
 
     /*START DRAFT NEW PLAYER ON CLICK*/
     $('.roster').on('click', '#draft-pick', function () {
