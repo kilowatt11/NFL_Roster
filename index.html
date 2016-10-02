@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-xs-12 col-md-6">
                 <div class="panel panel-default">
@@ -25,21 +25,31 @@
 
                     </div>-->
                         </div>
-                        <button type="button" class="btn btn-primary">Store Roster</button>
+                        <button type="button" class="btn btn-primary saveRoster">Save Roster</button>
+                        <button type="button" class="btn btn-primary loadMyRoster">Load Roster</button>
+                        <button type="button" class="btn btn-primary clearMyRoster">Clear Roster</button>
                     </div>
                 </div>
 
             </div>
+
+
             <div class="col-xs-12 col-md-6 text-center">
-                <input type="text" id="query">
-                <button id="find">Find</button>
-                <button class="clear-filter-button">Clear Filter</button>
-                <div class="roster">
+                <div class="panel panel-default">
+                    <div class="panel-heading heading">My NFL Roster</div>
+                    <div class="panel-body">
+                        <input type="text" id="query">
+                        <button id="find">Find</button>
+                        <button class="clear-filter-button">Clear Filter</button>
+                        <div class="roster">
 
+                        </div>
+
+
+                    </div>
                 </div>
-
-
             </div>
+
         </div>
     </div>
 

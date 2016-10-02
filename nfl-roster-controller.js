@@ -42,6 +42,20 @@ function ready(dataStore) {
             }
         }
     }
+
+    $('.saveRoster').on('click', function () {
+         localStorage.setItem('myTeam', JSON.stringify(myPlayers))
+         draftUpdate();   
+    })
+
+    $('.clearMyRoster').on('click', function(){
+        myPlayers= [];
+        draftUpdate(); 
+    })
+    $('.loadMyRoster').on('click', function(){
+        update();
+    })
+
     /*END DRAFT NEW PLAYER*/
 
 
@@ -65,15 +79,17 @@ function ready(dataStore) {
         }
     }
 
-    function draftUpdate() {
-        
+    function draftUpdate() { 
         draftRoster.empty();
         myPlayers.forEach(function (player) {
+            console.log(myPlayers)
             var template = '<div id="player-card" class=" text-center"><img class="media-object img-rounded" src="' + player.photo + '"alt ="..."/><p id="player-name">' + player.fullname + '</p><p>' + player.position + '</p><p>' + player.jersey + '</p></div>'
             draftRoster.append(template);
         })
     }
     /*END REMOVE PLAYER FROM ROSTER*/
+
+
 
     /*FILTER NFL PLAYER LIST*/
     $('#find').on('click', function (event) {
@@ -91,9 +107,18 @@ function ready(dataStore) {
 
     function update() {
         roster.empty()
+        
+        var data = localStorage.getItem('myTeam');
+        if(data){
+        playerData = JSON.parse(data)
+        myPlayers = playerData
+        draftUpdate();
+
+        }
 
         roster.append('<h3>Showing ' + players.length + ' Active Players</h3>')
         players.forEach(function (player) {
+            console.log(players)
             var template = '<ul class="player-list"><li id="draft-pick"><img src="' + player.photo + '" width="80"/>' + player.fullname + '</li></ul>'
             roster.append(template);
         })
