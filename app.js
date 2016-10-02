@@ -1,5 +1,5 @@
 
-new PlayerService('http://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json', ready)
+new PlayerService('https://api.cbssports.com/fantasy/players/list?version=3.0&SPORT=football&response_format=json', ready)
 
 function Player(playername, position, jersey) {
   var newPlayer = this
