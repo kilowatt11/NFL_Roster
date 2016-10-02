@@ -30,7 +30,7 @@ function PlayerService (url, callWhenDone){
   
   function goGetData(){
       console.log('getting data')
-      var BCWServer = "http://bcw-getter.herokuapp.com/?url=";
+      var BCWServer = "//bcw-getter.herokuapp.com/?url=";
       var modifiedUrl = BCWServer + encodeURIComponent(url);
       var data = localStorage.getItem('playerData');
       if(data){
